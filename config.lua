@@ -5,7 +5,7 @@ Config.Language = "fr"
 Config.Debug = true
 
 Config.Plant = {
-    WaterPerUse = 10, -- How many water points it should add to the plant.
+    WaterPerUse = 35, -- How many water points it should add to the plant.
 
     WaterTime = 5, -- How long to water the plant.
     HarvestTime = 5, -- How long to harvest the plant.
