@@ -3,7 +3,7 @@ local LocalPlants = {}
 
 function GetPlayerOffset(seed)
     local cfg = Config.Seeds[seed]
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local pcoords = GetEntityCoords(ped)
     local offset = cfg.Prop.Offsets.Start
     local coords = GetOffsetFromEntityInWorldCoords(ped, offset.x, offset.y, offset.z - 1.0)
@@ -12,7 +12,7 @@ end
 
 function IsPlantable(seed)
     local cfg = Config.Seeds[seed]
-    local ped = PlayerPedId()
+    local ped = cache.ped or PlayerPedId()
     local pcoords = GetEntityCoords(ped)
     local coords, heading = v3(GetPlayerOffset(seed))
     if cfg.Materials and #cfg.Materials > 0 then
@@ -61,7 +61,7 @@ function CreatePlant(seed)
     if (IsPlantable(seed)) then 
         ServerCallback("pickle_farming:createPlant", function(result)
             if result then
-                local ped = PlayerPedId()
+                local ped = cache.ped or PlayerPedId()
                 FreezeEntityPosition(ped, true)
                 TaskStartScenarioInPlace(ped, "WORLD_HUMAN_GARDENER_PLANT", 0, 1)
                 Wait(1000 * Config.Plant.PlantTime)
@@ -131,7 +131,7 @@ end
 function GetPlantCoords(key)
     local data = GlobalState.Plants[key]
     local cfg = Config.Seeds[data.seed]
-    local coords = vector3(data.coords.x, data.coords.y, GetEntityCoords(PlayerPedId()).z)
+    local coords = vector3(data.coords.x, data.coords.y, GetEntityCoords(cache.ped or PlayerPedId()).z)
     return coords
 end
 
@@ -144,7 +144,7 @@ function InteractPlant(key)
     if percent >= 100 then
         ServerCallback("pickle_farming:harvestPlant", function(result)
             if (result) then
-                local ped = PlayerPedId()
+                local ped = cache.ped or PlayerPedId()
                 FreezeEntityPosition(ped, true)
                 TaskStartScenarioInPlace(ped, "WORLD_HUMAN_GARDENER_PLANT", 0, 1)
                 Wait(1000 * Config.Plant.HarvestTime)
@@ -158,7 +158,7 @@ function InteractPlant(key)
     else
         ServerCallback("pickle_farming:waterPlant", function(result)
             if (result) then
-                local ped = PlayerPedId()
+                local ped = cache.ped or PlayerPedId()
                 local coords = GetEntityCoords(ped)
                 local can = CreateObject(`prop_wateringcan`, coords.x, coords.y, coords.z, true, true, true)
                 local boneID = GetPedBoneIndex(ped, 0x8CBD)
@@ -166,10 +166,10 @@ function InteractPlant(key)
                 local rot = vector3(0.0, -180.0, -140.0)
                 FreezeEntityPosition(ped, true)
                 AttachEntityToEntity(can, ped, boneID, off.x, off.y, off.z, rot.x, rot.y, rot.z, false, false, false, true, 1, true)
-                PlayAnim(PlayerPedId(), "missfbi3_waterboard", "waterboard_loop_player", -8.0, 8.0, -1, 49, 1.0)
+                PlayAnim(cache.ped or PlayerPedId(), "missfbi3_waterboard", "waterboard_loop_player", -8.0, 8.0, -1, 49, 1.0)
                 local ecoords = GetOffsetFromEntityInWorldCoords(can, 0.0, 0.0, 0.0)
                 PlayEffect("core", "ent_sht_water", can, vec3(0.34, 0.0, 0.2), vec3(0.0, 0.0, 0.0), 1000 * Config.Plant.WaterTime, function()
-                    ClearPedTasks(PlayerPedId())
+                    ClearPedTasks(cache.ped or PlayerPedId())
                     DeleteEntity(can)
                     FreezeEntityPosition(ped, false)
                     Wait(1000 * Config.Plant.WaterPostDelay)
@@ -197,7 +197,7 @@ CreateThread(function()
     while true do
         local wait = 1000
         local Plants = GlobalState.Plants
-        local pcoords = GetEntityCoords(PlayerPedId())
+        local pcoords = GetEntityCoords(cache.ped or PlayerPedId())
         for k,v in pairs(Plants) do
             local coords = GetPlantCoords(k)
             local dist = #(coords - pcoords)

@@ -11,7 +11,7 @@ Config.Plant = {
     HarvestTime = 5, -- How long to harvest the plant.
     PlantTime = 5, -- How long to plant the seed.
 
-    WaterPostDelay = 0, -- Cooldown for Watering.
+    WaterPostDelay = 30, -- Cooldown for Watering.
     MaxPlayerPlants = 5, -- Maximum plants a player can grow at a time.
     RenderDistance = 30.0, -- Distance to render spawned plants.
 
@@ -189,7 +189,7 @@ Config.Exchange = {
     {
         Type = "Process", -- Find first processable item, then reward per required.
         Blip = {
-            Label = "Job: Farming (Processing)",
+            Label = "Fermier: Traitement",
             ID = 171,
             Color = 47,
             Scale = 0.85,
@@ -209,7 +209,7 @@ Config.Exchange = {
     {
         Type = "Exchange", -- Go through entire inventory and exchange items for reward.
         Blip = {
-            Label = "Job: Farming (Selling)",
+            Label = "Fermier: Vente",
             ID = 207,
             Color = 47,
             Scale = 0.85,
@@ -230,21 +230,21 @@ Config.Exchange = {
 
 Config.Blips = {
     {
-        Label = "Job: Farming (Fields)",
+        Label = "Fermier: Champs 1",
         ID = 677,
         Color = 47,
         Scale = 0.85,
         Location = vector3(2516.3718, 4845.3442, 36.1397)
     },
     {
-        Label = "Job: Farming (Fields)",
+        Label = "Fermier: Champs 2",
         ID = 677,
         Color = 47,
         Scale = 0.85,
         Location = vector3(2225.2822, 5586.5454, 53.8013)
     },
     {
-        Label = "Job: Farming (Fields)",
+        Label = "Fermier: Champs 3",
         ID = 677,
         Color = 47,
         Scale = 0.85,

@@ -50,7 +50,7 @@ function InteractExchange(index)
     Interact = true
     local data = Config.Exchange[index]
     if (data.Type == "Process") then 
-        local ped = PlayerPedId()
+        local ped = cache.ped or PlayerPedId()
         FreezeEntityPosition(ped, true)
         PlayAnim(ped, "mini@repair", "fixing_a_ped", -8.0, 8.0, -1, 49, 1.0)
         if Config.ExchangeSettings.EnableSkillCheck then
@@ -87,7 +87,7 @@ end
 CreateThread(function()
     while true do
         local wait = 1000
-        local ped = PlayerPedId()
+        local ped = cache.ped or PlayerPedId()
         local pcoords = GetEntityCoords(ped)
         for i=1, #Config.Exchange do
             local data = Config.Exchange[i]
