@@ -5,13 +5,13 @@ Config.Language = "fr"
 Config.Debug = false
 
 Config.Plant = {
-    WaterPerUse = 35, -- How many water points it should add to the plant.
+    WaterPerUse = 5, -- How many water points it should add to the plant.
 
-    WaterTime = 5, -- How long to water the plant.
-    HarvestTime = 5, -- How long to harvest the plant.
-    PlantTime = 5, -- How long to plant the seed.
+    WaterTime = 6, -- How long to water the plant.
+    HarvestTime = 8, -- How long to harvest the plant.
+    PlantTime = 10, -- How long to plant the seed.
 
-    WaterPostDelay = 30, -- Cooldown for Watering.
+    WaterPostDelay = 60, -- Cooldown for Watering.
     MaxPlayerPlants = 5, -- Maximum plants a player can grow at a time.
     RenderDistance = 30.0, -- Distance to render spawned plants.
 
@@ -39,7 +39,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['tomato_seed'] = {
         Prop = {
@@ -54,7 +54,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['wheat_seed'] = {
         Prop = {
@@ -69,7 +69,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['broccoli_seed'] = {
         Prop = {
@@ -84,7 +84,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['carrot_seed'] = {
         Prop = {
@@ -99,7 +99,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['potato_seed'] = {
         Prop = {
@@ -114,7 +114,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['pickle_seed'] = {
         Prop = {
@@ -129,7 +129,7 @@ Config.Seeds = {
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {vector4(-98.9300, 1911.5332, 196.8396, 10.0)}, -- If planting location is inside this range, plant.
-        WaterNeeded = 100,
+        WaterNeeded = 20,
     },
     ['weed_seed'] = {
         Prop = {
@@ -140,7 +140,7 @@ Config.Seeds = {
             }
         }, 
         Rewards = {
-            {name = "weed_raw", min = 1, max = 2},
+            {name = "weed_raw", min = 1, max = 3},
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {
@@ -184,7 +184,7 @@ Config.Seeds = {
             }
         }, 
         Rewards = {
-            {name = "cocaine_raw", min = 1, max = 2},
+            {name = "cocaine_raw", min = 1, max = 1},
         },
         Materials = {"Farm", "Farm2", "Farm3"}, -- If planting location has this material, plant.
         Zones = {
