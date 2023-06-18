@@ -237,13 +237,13 @@ Config.Exchange = {
         },
         Location = vector4(2423.5002, 4985.6943, 45.9, 43.7853),
         Catalog = {
-            ["corn_raw"] = {required = 2, name = "corn", min = 1, max = 1},
-            ["tomato_raw"] = {required = 2, name = "tomato", min = 1, max = 1},
-            ["wheat_raw"] = {required = 2, name = "wheat", min = 1, max = 1},
-            ["broccoli_raw"] = {required = 2, name = "broccoli", min = 1, max = 1},
-            ["carrot_raw"] = {required = 2, name = "carrot", min = 1, max = 1},
-            ["potato_raw"] = {required = 2, name = "potato", min = 1, max = 1},
-            ["pickle_raw"] = {required = 2, name = "pickle", min = 1, max = 1},
+            ["corn_raw"] = {required = 1, name = "corn", min = 1, max = 1},
+            ["tomato_raw"] = {required = 1, name = "tomato", min = 1, max = 1},
+            ["wheat_raw"] = {required = 1, name = "wheat", min = 1, max = 1},
+            ["broccoli_raw"] = {required = 1, name = "broccoli", min = 1, max = 1},
+            ["carrot_raw"] = {required = 1, name = "carrot", min = 1, max = 1},
+            ["potato_raw"] = {required = 1, name = "potato", min = 1, max = 1},
+            ["pickle_raw"] = {required = 1, name = "pickle", min = 1, max = 1},
         }
     },
     -- Selling
