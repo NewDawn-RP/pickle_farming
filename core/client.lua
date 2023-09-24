@@ -2,6 +2,7 @@ function CreateNPC(modelHash, ...)
     RequestModel(modelHash)
     while not HasModelLoaded(modelHash) do Wait(0) end
     local ped = CreatePed(26, modelHash, ...)
+    Entity(ped).state.nodrugsales = true
     SetModelAsNoLongerNeeded(modelHash)
     return ped
 end
